@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Nov 14 21:17:45 2022
+# Process ID: 23618
+# Current directory: /root/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram.runs/synth_1
+# Command line: vivado -log tinyriscv_soc_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tinyriscv_soc_top.tcl
+# Log file: /root/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram.runs/synth_1/tinyriscv_soc_top.vds
+# Journal file: /root/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source tinyriscv_soc_top.tcl -notrace

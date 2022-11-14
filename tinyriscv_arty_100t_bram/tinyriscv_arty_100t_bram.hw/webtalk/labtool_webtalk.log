@@ -1,0 +1,9 @@
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /root/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram/tinyriscv_arty_100t_bram.hw/webtalk/labtool_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:10 . Memory (MB): peak = 417.812 ; gain = 0.000 ; free physical = 17743 ; free virtual = 25541
+INFO: [Common 17-206] Exiting Webtalk at Mon Nov 14 21:32:30 2022...

@@ -1,0 +1,318 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Mon Nov 14 16:20:10 2022
+| Host         : DESKTOP-7ILI8OM running 64-bit Ubuntu 18.04.6 LTS
+| Command      : report_control_sets -verbose -file tinyriscv_soc_top_control_sets_placed.rpt
+| Design       : tinyriscv_soc_top
+| Device       : xc7a100t
+----------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   240 |
+|    Minimum number of control sets                        |   240 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   136 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   240 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     9 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |   141 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    84 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              97 |           51 |
+| No           | No                    | Yes                    |              53 |           19 |
+| No           | Yes                   | No                     |             464 |          239 |
+| Yes          | No                    | No                     |            1032 |          759 |
+| Yes          | No                    | Yes                    |             503 |          213 |
+| Yes          | Yes                   | No                     |            2139 |          931 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------+------------------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+|          Clock Signal          |                        Enable Signal                       |                Set/Reset Signal                | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------------+------------------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+|  clk_100M_to_50M/inst/clk_out1 | spi_0/spi_mosi_i_1_n_0                                     | u_tinyriscv/u_csr_reg/SR[0]                    |                1 |              1 |         1.00 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/tx_reg_i_2_n_0                                      | uart_0/tx_reg_i_1_n_0                          |                1 |              1 |         1.00 |
+| ~jtag_TCK_IBUF_BUFG            |                                                            | u_jtag_top/u_jtag_driver/jtag_TDO_i_1_n_0      |                1 |              1 |         1.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/crc_bit_index                                 | u_uart_debug/state[13]_i_1_n_0                 |                1 |              4 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/state[3]_i_1__0_n_0                                 | u_tinyriscv/u_csr_reg/SR[0]                    |                1 |              4 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/rx_clk_cnt0                                         | uart_0/rx_data                                 |                2 |              4 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/bit_cnt[3]_i_1_n_0                                  | uart_0/tx_reg_i_1_n_0                          |                1 |              4 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/state[3]_i_1_n_0                         | u_tinyriscv/u_csr_reg/SR[0]                    |                4 |              4 |         1.00 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | u_tinyriscv/u_if_id/inst_ff/qout_r[2]_i_2__2_0 |                1 |              4 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | spi_0/clk_cnt0                                             | spi_0/spi_clk_edge_cnt[4]_i_1_n_0              |                2 |              5 |         2.50 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_clint/csr_state[4]_i_1_n_0                   | u_tinyriscv/u_csr_reg/SR[0]                    |                3 |              5 |         1.67 |
+| ~jtag_TCK_IBUF_BUFG            | u_jtag_top/u_jtag_driver/FSM_onehot_jtag_state_reg_n_0_[9] | u_jtag_top/u_jtag_driver/ir_reg                |                2 |              5 |         2.50 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | u_tinyriscv/u_if_id/inst_ff/qout_r_reg[4]_5    |                3 |              7 |         2.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[130][7]_i_2_n_0                       | u_uart_debug/rx_data[130][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[24][7]_i_2_n_0                        | u_uart_debug/rx_data[24][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[23][7]_i_2_n_0                        | u_uart_debug/rx_data[23][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[22][7]_i_2_n_0                        | u_uart_debug/rx_data[22][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[129][7]_i_2_n_0                       | u_uart_debug/rx_data[129][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[21][7]_i_2_n_0                        | u_uart_debug/rx_data[21][7]_i_1_n_0            |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[12][7]_i_2_n_0                        | u_uart_debug/rx_data[12][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[20][7]_i_2_n_0                        | u_uart_debug/rx_data[20][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[1][7]_i_2_n_0                         | u_uart_debug/rx_data[1][7]_i_1_n_0             |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[16][7]_i_2_n_0                        | u_uart_debug/rx_data[16][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[19][7]_i_2_n_0                        | u_uart_debug/rx_data[19][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[131][7]_i_2_n_0                       | u_uart_debug/rx_data[131][7]_i_1_n_0           |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[18][7]_i_2_n_0                        | u_uart_debug/rx_data[18][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[13][7]_i_2_n_0                        | u_uart_debug/rx_data[13][7]_i_1_n_0            |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[14][7]_i_2_n_0                        | u_uart_debug/rx_data[14][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[15][7]_i_2_n_0                        | u_uart_debug/rx_data[15][7]_i_1_n_0            |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[126][7]_i_2_n_0                       | u_uart_debug/rx_data[126][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[17][7]_i_2_n_0                        | u_uart_debug/rx_data[17][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[116][7]_i_2_n_0                       | u_uart_debug/rx_data[116][7]_i_1_n_0           |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[105][7]_i_2_n_0                       | u_uart_debug/rx_data[105][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[106][7]_i_2_n_0                       | u_uart_debug/rx_data[106][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[107][7]_i_2_n_0                       | u_uart_debug/rx_data[107][7]_i_1_n_0           |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[108][7]_i_2_n_0                       | u_uart_debug/rx_data[108][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[109][7]_i_2_n_0                       | u_uart_debug/rx_data[109][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[10][7]_i_2_n_0                        | u_uart_debug/rx_data[10][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[110][7]_i_2_n_0                       | u_uart_debug/rx_data[110][7]_i_1_n_0           |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[111][7]_i_2_n_0                       | u_uart_debug/rx_data[111][7]_i_1_n_0           |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[112][7]_i_2_n_0                       | u_uart_debug/rx_data[112][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[113][7]_i_2_n_0                       | u_uart_debug/rx_data[113][7]_i_1_n_0           |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[114][7]_i_2_n_0                       | u_uart_debug/rx_data[114][7]_i_1_n_0           |                8 |              8 |         1.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[115][7]_i_2_n_0                       | u_uart_debug/rx_data[115][7]_i_1_n_0           |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[128][7]_i_2_n_0                       | u_uart_debug/rx_data[128][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[117][7]_i_2_n_0                       | u_uart_debug/rx_data[117][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[118][7]_i_2_n_0                       | u_uart_debug/rx_data[118][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[119][7]_i_2_n_0                       | u_uart_debug/rx_data[119][7]_i_1_n_0           |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[11][7]_i_2_n_0                        | u_uart_debug/rx_data[11][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[120][7]_i_2_n_0                       | u_uart_debug/rx_data[120][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[121][7]_i_2_n_0                       | u_uart_debug/rx_data[121][7]_i_1_n_0           |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[122][7]_i_2_n_0                       | u_uart_debug/rx_data[122][7]_i_1_n_0           |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[123][7]_i_2_n_0                       | u_uart_debug/rx_data[123][7]_i_1_n_0           |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[124][7]_i_2_n_0                       | u_uart_debug/rx_data[124][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[125][7]_i_2_n_0                       | u_uart_debug/rx_data[125][7]_i_1_n_0           |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[29][7]_i_2_n_0                        | u_uart_debug/rx_data[29][7]_i_1_n_0            |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[127][7]_i_2_n_0                       | u_uart_debug/rx_data[127][7]_i_1_n_0           |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[58][7]_i_2_n_0                        | u_uart_debug/rx_data[58][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[48][7]_i_2_n_0                        | u_uart_debug/rx_data[48][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[49][7]_i_2_n_0                        | u_uart_debug/rx_data[49][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[4][7]_i_2_n_0                         | u_uart_debug/rx_data[4][7]_i_1_n_0             |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[50][7]_i_2_n_0                        | u_uart_debug/rx_data[50][7]_i_1_n_0            |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[51][7]_i_2_n_0                        | u_uart_debug/rx_data[51][7]_i_1_n_0            |                8 |              8 |         1.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[52][7]_i_2_n_0                        | u_uart_debug/rx_data[52][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[53][7]_i_2_n_0                        | u_uart_debug/rx_data[53][7]_i_1_n_0            |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[54][7]_i_2_n_0                        | u_uart_debug/rx_data[54][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[55][7]_i_2_n_0                        | u_uart_debug/rx_data[55][7]_i_1_n_0            |                1 |              8 |         8.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[56][7]_i_2_n_0                        | u_uart_debug/rx_data[56][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[57][7]_i_2_n_0                        | u_uart_debug/rx_data[57][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[47][7]_i_2_n_0                        | u_uart_debug/rx_data[47][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[59][7]_i_2_n_0                        | u_uart_debug/rx_data[59][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[5][7]_i_2_n_0                         | u_uart_debug/rx_data[5][7]_i_1_n_0             |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[60][7]_i_2_n_0                        | u_uart_debug/rx_data[60][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[61][7]_i_2_n_0                        | u_uart_debug/rx_data[61][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[62][7]_i_2_n_0                        | u_uart_debug/rx_data[62][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[63][7]_i_2_n_0                        | u_uart_debug/rx_data[63][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[64][7]_i_2_n_0                        | u_uart_debug/rx_data[64][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[65][7]_i_2_n_0                        | u_uart_debug/rx_data[65][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[66][7]_i_2_n_0                        | u_uart_debug/rx_data[66][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[67][7]_i_2_n_0                        | u_uart_debug/rx_data[67][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[68][7]_i_2_n_0                        | u_uart_debug/rx_data[68][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[36][7]_i_2_n_0                        | u_uart_debug/rx_data[36][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[26][7]_i_2_n_0                        | u_uart_debug/rx_data[26][7]_i_1_n_0            |                1 |              8 |         8.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[27][7]_i_2_n_0                        | u_uart_debug/rx_data[27][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[28][7]_i_2_n_0                        | u_uart_debug/rx_data[28][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rec_bytes_index__0                            | u_uart_debug/state[13]_i_1_n_0                 |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[2][7]_i_2_n_0                         | u_uart_debug/rx_data[2][7]_i_1_n_0             |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[30][7]_i_2_n_0                        | u_uart_debug/rx_data[30][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[31][7]_i_2_n_0                        | u_uart_debug/rx_data[31][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[32][7]_i_2_n_0                        | u_uart_debug/rx_data[32][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[33][7]_i_2_n_0                        | u_uart_debug/rx_data[33][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[34][7]_i_2_n_0                        | u_uart_debug/rx_data[34][7]_i_1_n_0            |                1 |              8 |         8.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[35][7]_i_2_n_0                        | u_uart_debug/rx_data[35][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[25][7]_i_2_n_0                        | u_uart_debug/rx_data[25][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[37][7]_i_2_n_0                        | u_uart_debug/rx_data[37][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[38][7]_i_2_n_0                        | u_uart_debug/rx_data[38][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[39][7]_i_2_n_0                        | u_uart_debug/rx_data[39][7]_i_1_n_0            |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[3][7]_i_2_n_0                         | u_uart_debug/rx_data[3][7]_i_1_n_0             |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[40][7]_i_2_n_0                        | u_uart_debug/rx_data[40][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[41][7]_i_2_n_0                        | u_uart_debug/rx_data[41][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[42][7]_i_2_n_0                        | u_uart_debug/rx_data[42][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[43][7]_i_2_n_0                        | u_uart_debug/rx_data[43][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[44][7]_i_2_n_0                        | u_uart_debug/rx_data[44][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[45][7]_i_2_n_0                        | u_uart_debug/rx_data[45][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[46][7]_i_2_n_0                        | u_uart_debug/rx_data[46][7]_i_1_n_0            |                1 |              8 |         8.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[93][7]_i_2_n_0                        | u_uart_debug/rx_data[93][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/E[0]                                                | u_tinyriscv/u_csr_reg/SR[0]                    |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/rx_data[7]_i_1_n_0                                  | uart_0/rx_data                                 |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[84][7]_i_2_n_0                        | u_uart_debug/rx_data[84][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[85][7]_i_2_n_0                        | u_uart_debug/rx_data[85][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[86][7]_i_2_n_0                        | u_uart_debug/rx_data[86][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[87][7]_i_2_n_0                        | u_uart_debug/rx_data[87][7]_i_1_n_0            |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[88][7]_i_2_n_0                        | u_uart_debug/rx_data[88][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[89][7]_i_2_n_0                        | u_uart_debug/rx_data[89][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[8][7]_i_2_n_0                         | u_uart_debug/rx_data[8][7]_i_1_n_0             |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[90][7]_i_2_n_0                        | u_uart_debug/rx_data[90][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[91][7]_i_2_n_0                        | u_uart_debug/rx_data[91][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[92][7]_i_2_n_0                        | u_uart_debug/rx_data[92][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[103][7]_i_2_n_0                       | u_uart_debug/rx_data[103][7]_i_1_n_0           |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[94][7]_i_2_n_0                        | u_uart_debug/rx_data[94][7]_i_1_n_0            |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[95][7]_i_2_n_0                        | u_uart_debug/rx_data[95][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[96][7]_i_2_n_0                        | u_uart_debug/rx_data[96][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[97][7]_i_2_n_0                        | u_uart_debug/rx_data[97][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[98][7]_i_2_n_0                        | u_uart_debug/rx_data[98][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/op_r[2]_i_1_n_0                          | u_tinyriscv/u_csr_reg/SR[0]                    |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[99][7]_i_2_n_0                        | u_uart_debug/rx_data[99][7]_i_1_n_0            |                6 |              8 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | spi_0/rdata[7]_i_1_n_0                                     | u_tinyriscv/u_csr_reg/SR[0]                    |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[9][7]_i_2_n_0                         | u_uart_debug/rx_data[9][7]_i_1_n_0             |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | u_tinyriscv/u_if_id/inst_ff/qout_r_reg[13]_2   |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/E[0]                                          | u_tinyriscv/u_csr_reg/SR[0]                    |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_we_o_reg_1[0]                             |                                                |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[73][7]_i_2_n_0                        | u_uart_debug/rx_data[73][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[0][7]_i_2_n_0                         | u_uart_debug/rx_data[0][7]_i_1_n_0             |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[100][7]_i_2_n_0                       | u_uart_debug/rx_data[100][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[101][7]_i_2_n_0                       | u_uart_debug/rx_data[101][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[102][7]_i_2_n_0                       | u_uart_debug/rx_data[102][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[69][7]_i_2_n_0                        | u_uart_debug/rx_data[69][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[6][7]_i_2_n_0                         | u_uart_debug/rx_data[6][7]_i_1_n_0             |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[70][7]_i_2_n_0                        | u_uart_debug/rx_data[70][7]_i_1_n_0            |                1 |              8 |         8.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[71][7]_i_2_n_0                        | u_uart_debug/rx_data[71][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[72][7]_i_2_n_0                        | u_uart_debug/rx_data[72][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[74][7]_i_2_n_0                        | u_uart_debug/rx_data[74][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[75][7]_i_2_n_0                        | u_uart_debug/rx_data[75][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[76][7]_i_2_n_0                        | u_uart_debug/rx_data[76][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[77][7]_i_2_n_0                        | u_uart_debug/rx_data[77][7]_i_1_n_0            |                7 |              8 |         1.14 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[79][7]_i_2_n_0                        | u_uart_debug/rx_data[79][7]_i_1_n_0            |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[7][7]_i_2_n_0                         | u_uart_debug/rx_data[7][7]_i_1_n_0             |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[80][7]_i_2_n_0                        | u_uart_debug/rx_data[80][7]_i_1_n_0            |                5 |              8 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[78][7]_i_2_n_0                        | u_uart_debug/rx_data[78][7]_i_1_n_0            |                3 |              8 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[83][7]_i_2_n_0                        | u_uart_debug/rx_data[83][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[81][7]_i_2_n_0                        | u_uart_debug/rx_data[81][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[104][7]_i_2_n_0                       | u_uart_debug/rx_data[104][7]_i_1_n_0           |                2 |              8 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/rx_data[82][7]_i_2_n_0                        | u_uart_debug/rx_data[82][7]_i_1_n_0            |                4 |              8 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | spi_0/clk_cnt[8]_i_1_n_0                       |                2 |              9 |         4.50 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/crc_byte_index                                | u_uart_debug/state[13]_i_1_n_0                 |                5 |             11 |         2.20 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/state[13]_i_2_n_0                             | u_uart_debug/state[13]_i_1_n_0                 |                7 |             14 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | uart_0/cycle_cnt[0]_i_2_n_0                                | uart_0/cycle_cnt[0]_i_1_n_0                    |                4 |             16 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/crc_result                                    | u_uart_debug/state[13]_i_1_n_0                 |                6 |             16 |         2.67 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | uart_0/rx_clk_cnt[0]_i_1_n_0                   |                4 |             16 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/remain_packet_count[15]_i_1_n_0               | u_uart_debug/state[13]_i_1_n_0                 |                4 |             16 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/fw_file_size[22]_i_1_n_0                      | u_uart_debug/state[13]_i_1_n_0                 |                4 |             16 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_rdy_reg_8[0]                  | u_tinyriscv/u_csr_reg/SR[0]                    |                7 |             18 |         2.57 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/E[0]                                          | u_uart_debug/SR[0]                             |               12 |             24 |         2.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_rdy_reg_6                     | u_tinyriscv/u_csr_reg/SR[0]                    |               14 |             25 |         1.79 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/p_1_in__0[0]                   | u_tinyriscv/u_csr_reg/SR[0]                    |               18 |             30 |         1.67 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/dm_mem_addr_reg[0][0]              | u_tinyriscv/u_csr_reg/SR[0]                    |               19 |             30 |         1.58 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/write_mem_addr[31]_i_1_n_0                    | u_uart_debug/state[13]_i_1_n_0                 |               14 |             31 |         2.21 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/p_1_in[0]                                     | u_tinyriscv/u_csr_reg/SR[0]                    |               19 |             31 |         1.63 |
+|  jtag_TCK_IBUF_BUFG            |                                                            | u_tinyriscv/u_csr_reg/SR[0]                    |                7 |             31 |         4.43 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/dividend_r[31]_i_1_n_0                   | u_tinyriscv/u_csr_reg/SR[0]                    |               13 |             32 |         2.46 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[5][0]           | u_tinyriscv/u_csr_reg/SR[0]                    |               17 |             32 |         1.88 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_addr_reg[3]_3[0]        | u_tinyriscv/u_csr_reg/SR[0]                    |               20 |             32 |         1.60 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/E[0]                           | u_tinyriscv/u_csr_reg/SR[0]                    |               19 |             32 |         1.68 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/csr_waddr_ff/waddr_o_reg[1][0]         | u_tinyriscv/u_csr_reg/SR[0]                    |               10 |             32 |         3.20 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/csr_waddr_ff/qout_r_reg[2]_2[0]        | u_tinyriscv/u_csr_reg/SR[0]                    |               11 |             32 |         2.91 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/csr_waddr_ff/qout_r_reg[1]_1[0]        | u_tinyriscv/u_csr_reg/SR[0]                    |                9 |             32 |         3.56 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | timer_0/timer_count[0]_i_1_n_0                 |                8 |             32 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/minuend[31]_i_1_n_0                      | u_tinyriscv/u_csr_reg/SR[0]                    |               11 |             32 |         2.91 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/divisor_r[31]_i_1_n_0                    | u_tinyriscv/u_csr_reg/SR[0]                    |               18 |             32 |         1.78 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_rdy_reg_7[0]                  | u_tinyriscv/u_csr_reg/SR[0]                    |               13 |             32 |         2.46 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/div_remain[31]_i_1_n_0                   | u_tinyriscv/u_csr_reg/SR[0]                    |               14 |             32 |         2.29 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/E[0]                               | u_tinyriscv/u_csr_reg/SR[0]                    |               21 |             32 |         1.52 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_clint/waddr_o_reg[6]_1[0]                    | u_tinyriscv/u_csr_reg/SR[0]                    |               10 |             32 |         3.20 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_data_reg[2]_2[0]              | u_tinyriscv/u_csr_reg/SR[0]                    |               13 |             32 |         2.46 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_data_reg[34]_0[0]             | u_tinyriscv/u_csr_reg/SR[0]                    |               17 |             32 |         1.88 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_data_reg[38]_0[0]             | u_tinyriscv/u_csr_reg/SR[0]                    |               17 |             32 |         1.88 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_rdy_reg_1[0]                  | u_tinyriscv/u_csr_reg/SR[0]                    |               24 |             32 |         1.33 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_rdy_reg_2[0]                  | u_tinyriscv/u_csr_reg/SR[0]                    |               17 |             32 |         1.88 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_clint/waddr_o_reg[6]_0[0]                    | u_tinyriscv/u_csr_reg/SR[0]                    |                8 |             32 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_rdy_reg_9[0]                  | u_tinyriscv/u_csr_reg/SR[0]                    |               22 |             32 |         1.45 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_clint/waddr_o_reg[0]_0[0]                    | u_tinyriscv/u_csr_reg/SR[0]                    |               10 |             32 |         3.20 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_clint/E[0]                                   | u_jtag_top/u_jtag_dm/SR[0]                     |               13 |             32 |         2.46 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/result_o[31]_i_1_n_0                     | u_tinyriscv/u_csr_reg/SR[0]                    |               19 |             33 |         1.74 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_clint/p_1_in[2]                              | u_tinyriscv/u_csr_reg/SR[0]                    |               16 |             35 |         2.19 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/tx/req_data                           | u_tinyriscv/u_csr_reg/SR[0]                    |               14 |             38 |         2.71 |
+|  jtag_TCK_IBUF_BUFG            | u_jtag_top/u_jtag_driver/rx/E[0]                           | u_tinyriscv/u_csr_reg/SR[0]                    |               12 |             38 |         3.17 |
+|  jtag_TCK_IBUF_BUFG            | u_jtag_top/u_jtag_driver/rx/recv_rdy                       | u_tinyriscv/u_csr_reg/SR[0]                    |               10 |             39 |         3.90 |
+|  jtag_TCK_IBUF_BUFG            | u_jtag_top/u_jtag_driver/tx/req_data__0                    | u_tinyriscv/u_csr_reg/SR[0]                    |               11 |             40 |         3.64 |
+|  jtag_TCK_IBUF_BUFG            | u_jtag_top/u_jtag_driver/tx/E[0]                           | u_tinyriscv/u_csr_reg/SR[0]                    |                9 |             40 |         4.44 |
+|  jtag_TCK_IBUF_BUFG            | u_jtag_top/u_jtag_driver/shift_reg                         | u_jtag_top/u_jtag_driver/shift_reg0            |               14 |             40 |         2.86 |
+|  clk_100M_to_50M/inst/clk_out1 | u_jtag_top/u_jtag_dm/rx/recv_data                          | u_tinyriscv/u_csr_reg/SR[0]                    |               13 |             41 |         3.15 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o[31]_i_1_n_0                        | u_uart_debug/state[13]_i_1_n_0                 |               18 |             50 |         2.78 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/write_mem_byte_index0[7]_i_1_n_0              | u_uart_debug/state[13]_i_1_n_0                 |               24 |             62 |         2.58 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_div/count[30]_i_1_n_0                        | u_tinyriscv/u_csr_reg/SR[0]                    |               23 |             63 |         2.74 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            |                                                |               51 |             97 |         1.90 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[12]_1           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[28]_7                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[12]_0           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[12]             |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_we_reg_4                |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_we_reg_3                |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_we_reg_2                |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_we_reg_1                |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_we_reg_0                |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_we_reg                  |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_addr_reg[11]_1          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_addr_reg[11]_0          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/dm_mem_addr_reg[10]_0          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[13]_0           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[28]_8                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[28]_6                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[28]_5                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[28]_4                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[28]_3                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[13]_3                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[13]_2                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[13]_1                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[13]_0                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[12]_2                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[12]_1                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/mem_addr_o_reg[12]_0                          |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/dm_mem_addr_reg[11]_0                         |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/dm_mem_addr_reg[11]                           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_uart_debug/dm_mem_addr_reg[10]                           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[13]_2           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[13]_1           |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 | u_tinyriscv/u_id_ex/inst_ff/mem_addr_o_reg[13]             |                                                |               32 |            128 |         4.00 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | u_tinyriscv/u_csr_reg/SR[0]                    |               85 |            188 |         2.21 |
+|  clk_100M_to_50M/inst/clk_out1 |                                                            | u_tinyriscv/u_if_id/inst_ff/dm_halt_req_reg_0  |              142 |            221 |         1.56 |
+|  clk_100M_to_50M/inst/clk_out1 | rst_IBUF                                                   |                                                |              757 |           1024 |         1.35 |
++--------------------------------+------------------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+
+
